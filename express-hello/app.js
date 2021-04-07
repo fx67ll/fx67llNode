@@ -16,6 +16,19 @@ var studentRouter = require('./routes/student');
 
 var app = express();
 
+// 解决跨域问题，仅做部署使用，平时开发前端直接nginx代理一下就行了
+// var cors = require('cors');
+// app.use(cors({
+// 	// 应许改域访问
+// 	origin: ['http://211.149.128.130:83'],
+// 	// 允许状态为200
+// 	optionsSuccessStatus: 200,
+// 	// 只应许GET\POST请求
+// 	methods: ['GET', 'POST', 'PUT', 'DELETE'],
+// 	// 只应许带content-type请求头访问
+// 	allowedHeaders: ['Content-Type']
+// }));
+
 // 设置模板引擎
 // app.set('views', path.join(__dirname, 'views'));
 // app.engine('.html', ejs.__express);
@@ -41,10 +54,6 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 // app.use('/human', humanRouter);
 app.use('/student', studentRouter);
-
-// 解决跨域问题
-// var cors = require('cors');
-// app.use(cors());
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
