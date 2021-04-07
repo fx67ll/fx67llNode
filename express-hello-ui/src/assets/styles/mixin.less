@@ -1,0 +1,28 @@
+// 引入苹果字体
+@font-face {
+	font-family: 'PFR';
+	src: url('~@a/fonts/PingFang Regular En.ttf') format('truetype');
+}
+
+// 设置主题颜色
+@green: #42b983;
+@grey: #bababa;
+@red: #ef8e81;
+
+a {
+	color: @grey;
+}
+a:hover {
+	color: @green;
+}
+
+// 禁止文本选中且修改鼠标默认效果
+.ban-user-select {
+	cursor: pointer;
+	-webkit-touch-callout: none; /* iOS Safari */
+	-webkit-user-select: none; /* Chrome/Safari/Opera */
+	-khtml-user-select: none; /* Konqueror */
+	-moz-user-select: none; /* Firefox */
+	-ms-user-select: none; /* Internet Explorer/Edge */
+	user-select: none; /* Non-prefixed version, currently not supported by any browser */
+}
