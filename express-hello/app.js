@@ -20,7 +20,7 @@ var app = express();
 // var cors = require('cors');
 // app.use(cors({
 // 	// 应许改域访问
-// 	origin: ['http://211.149.128.130:83'],
+// 	origin: ['http://211.149.128.130:83','http://node.fx67ll.com'],
 // 	// 允许状态为200
 // 	optionsSuccessStatus: 200,
 // 	// 只应许GET\POST请求
