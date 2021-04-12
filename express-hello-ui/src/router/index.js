@@ -16,7 +16,7 @@ import store from '@/store/index.js'
 export const fx67llRoutes = [{
 	path: '/',
 	name: 'login',
-	component: () => import('@v/login.vue') //首页
+	component: () => import('@v/login.vue') //登录页
 }, {
 	path: '/index',
 	name: 'index',
