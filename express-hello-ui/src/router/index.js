@@ -14,11 +14,14 @@ Router.prototype.push = function push(location) {
 import store from '@/store/index.js'
 
 export const fx67llRoutes = [{
-		path: '/',
-		name: 'index',
-		component: () => import('@v/index.vue') //首页
-	}
-]
+	path: '/',
+	name: 'login',
+	component: () => import('@v/login.vue') //首页
+}, {
+	path: '/index',
+	name: 'index',
+	component: () => import('@v/index.vue') //首页
+}]
 
 const router = new Router({
 	mode: 'hash', // history模式，去掉url中的#
