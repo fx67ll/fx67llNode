@@ -8,6 +8,8 @@ Vue.config.productionTip = false
 import less from 'less'
 Vue.use(less)
 
+import "normalize.css";
+
 import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
 Vue.use(ElementUI)
