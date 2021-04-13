@@ -4,6 +4,10 @@
 	box-sizing: border-box;
 }
 
+.fx67ll-footer {
+	z-index: 999;
+}
+
 .login-box {
 	font-family: 'Source Sans Pro', sans-serif;
 	color: white;
@@ -67,7 +71,7 @@
 .container {
 	max-width: 600px;
 	margin: 0 auto;
-	padding: 80px 0;
+	padding: 200px 0;
 	height: 400px;
 	text-align: center;
 }
@@ -81,13 +85,34 @@
 	font-weight: 200;
 }
 
-form {
+.form {
 	padding: 20px 0;
 	position: relative;
 	z-index: 2;
+	opacity: 1;
 }
 
-form input {
+// 淡出效果
+.fadeout {
+	-webkit-transition: all 0.6s;
+	-moz-transition: all 0.6s;
+	-ms-transition: all 0.6s;
+	-o-transition: all 0.6s;
+	transition: all 0.6s;
+	opacity: 0;
+}
+
+// 淡入效果
+.fadein {
+	-webkit-transition: all 0.6s;
+	-moz-transition: all 0.6s;
+	-ms-transition: all 0.6s;
+	-o-transition: all 0.6s;
+	transition: all 0.6s;
+	opacity: 1;
+}
+
+.form input {
 	-webkit-appearance: none;
 	-moz-appearance: none;
 	appearance: none;
@@ -107,17 +132,17 @@ form input {
 	font-weight: 300;
 }
 
-form input:hover {
+.form input:hover {
 	background-color: rgba(255, 255, 255, 0.4);
 }
 
-form input:focus {
+.form input:focus {
 	background-color: white;
 	width: 300px;
 	color: #53e3a6;
 }
 
-form button {
+.form button {
 	-webkit-appearance: none;
 	-moz-appearance: none;
 	appearance: none;
@@ -134,10 +159,9 @@ form button {
 	transition-duration: 0.25s;
 }
 
-form button:hover {
+.form button:hover {
 	background-color: #f5f7f9;
 }
-
 
 /* 气泡公共样式 */
 .bg-bubbles {
