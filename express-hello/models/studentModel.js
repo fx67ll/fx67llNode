@@ -1,7 +1,7 @@
-var mongoose = require('mongoose')
+var mongoose = require('mongoose');
 
 //用于定义表模型
-var Schema = mongoose.Schema
+var Schema = mongoose.Schema;
 
 //创建模型
 var studentSchema = new Schema({
@@ -49,5 +49,5 @@ var studentSchema = new Schema({
 });
 
 // 输出模型
-const Student = mongoose.model('student', studentSchema)
-module.exports = Student
+const Student = mongoose.model('student', studentSchema);
+module.exports = Student;

@@ -1,6 +1,8 @@
-var express = require('express')
-var router = express.Router()
-var Human = require('../models/humanModel')
+// 这个文件是第一次写的增删改查，什么内容都没有，完全纯净版增删改查
+
+var express = require('express');
+var router = express.Router();
+var Human = require('../models/humanModel');
 
 // 查询人物列表
 router.get('/getHumanList', function(req, res, next) {
@@ -44,7 +46,7 @@ router.post('/createHuman', async (req, res) => {
 	} catch (error) {
 		res.send(error)
 	}
-})
+});
 
 // 删除人物
 router.delete('/deleteHumanById/:id', async (req, res) => {
@@ -60,7 +62,7 @@ router.delete('/deleteHumanById/:id', async (req, res) => {
 	} catch (error) {
 		res.send('error')
 	}
-})
+});
 
 // 修改人物
 router.put('/updateHumanById/:id', async (req, res) => {
@@ -85,7 +87,7 @@ router.put('/updateHumanById/:id', async (req, res) => {
 	} catch (error) {
 		res.send(error)
 	}
-})
+});
 
 // 根据id查询人物
 router.get('/getHumanById/:id', async (req, res) => {
@@ -99,6 +101,6 @@ router.get('/getHumanById/:id', async (req, res) => {
 	} catch (error) {
 		res.send('error msg')
 	}
-})
+});
 
 module.exports = router;
