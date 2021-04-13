@@ -2,16 +2,18 @@ var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
-// var ejs = require('ejs');ss
+// var ejs = require('ejs');
 var logger = require('morgan');
 
 // 连接数据库
 var InitiateMongoServer = require('./mongodb/index');
 InitiateMongoServer();
 
-var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
+// 前三个是基础学习时候用到路由，暂时不需要
+// var indexRouter = require('./routes/index');
+// var usersRouter = require('./routes/users');
 // var humanRouter = require('./routes/human');
+var authRouter = require('./routes/auth');
 var studentRouter = require('./routes/student');
 
 var app = express();
@@ -29,10 +31,10 @@ var app = express();
 // 	allowedHeaders: ['Content-Type']
 // }));
 
-// 设置模板引擎
+// 设置模板引擎，使用这里代码的时候注意放开上面的引用注释，但是这个引擎目前还不知道有什么用
 // app.set('views', path.join(__dirname, 'views'));
-// app.engine('.html', ejs.__express);
 // app.set('view engine', 'html');
+// app.engine('.html', ejs.__express);
 
 // 输出日志
 app.use(logger('dev'));
@@ -46,23 +48,19 @@ app.use(express.urlencoded({
 // 解析Cookie
 app.use(cookieParser());
 
-// 访问静态资源
+// 访问静态资源，不然无法在3000端口下访问，貌似这里可以代替引用模板引擎
 app.use(express.static(path.join(__dirname, 'views')));
 
 // 设置路由，就是请求路径
-app.use('/', indexRouter);
-app.use('/users', usersRouter);
+// 前三个是基础学习时候用到路由，暂时不需要
+// app.use('/', indexRouter);
+// app.use('/users', usersRouter);
 // app.use('/human', humanRouter);
+app.use('/', authRouter);
 app.use('/student', studentRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
-	// 解决跨域问题
-	// res.header('Access-Control-Allow-Origin', '*')
-	// res.header('Access-Control-Allow-Headers',
-	// 	'Authorization,X-API-KEY, Origin, X-Requested-With, Content-Type, Accept, Access-Control-Request-Method')
-	// res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PATCH, PUT, DELETE')
-	// res.header('Allow', 'GET, POST, PATCH, OPTIONS, PUT, DELETE')
 	next(createError(404));
 });
 
