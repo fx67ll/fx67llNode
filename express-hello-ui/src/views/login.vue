@@ -55,20 +55,24 @@ export default {
 	methods: {
 		handleLogin() {
 			var self = this;
-			this.isLogin = true;
-			login(this.loginFrom).then(res => {
-				Cookies.set('User-Token', res.token);
-				this.$notify.success({
-					title: res.data.userName,
-					message: res.msg,
-					showClose: false
-				});
-				setTimeout(function() {
-					self.$router.push({
-						name: 'index'
+			if(this.loginFrom.userName !== '' && this.loginFrom.passWord !== ''){
+				this.isLogin = true;
+				login(this.loginFrom).then(res => {
+					Cookies.set('User-Token', res.token);
+					this.$notify.success({
+						title: res.data.userName,
+						message: res.msg,
+						showClose: false
 					});
-				}, 1000);
-			});
+					setTimeout(function() {
+						self.$router.push({
+							name: 'index'
+						});
+					}, 1000);
+				});
+			}else{
+				this.msgError('账号或密码不能为空！')
+			}
 		}
 	}
 };

@@ -39,6 +39,10 @@
 				@change="timeChange()"
 			></el-date-picker>
 			<el-button type="primary" icon="el-icon-search" class="jdsms-right-btn-search" @click="handleSearch">查询满18周岁的人</el-button>
+			<el-button type="primary" class="jdsms-right-btn-add" @click="handleLoginOut">
+				退出登录临时按钮
+				<i class="el-icon-male el-icon--right"></i>
+			</el-button>
 			<el-button type="primary" class="jdsms-right-btn-add" @click="handleAdd">
 				添加
 				<i class="el-icon-upload el-icon--right"></i>
@@ -104,6 +108,8 @@
 import { listStudent, getStudent, addStudent, updateStudent, delStudent } from '@api/student.js';
 import moment from 'moment';
 import _ from 'underscore';
+import Cookies from 'js-cookie';
+
 export default {
 	name: 'index',
 	data() {
@@ -203,6 +209,18 @@ export default {
 		this.getList();
 	},
 	methods: {
+		// 退出登录
+		handleLoginOut() {
+			Cookies.remove('User-Token');
+			this.$notify.success({
+				title: '提示',
+				message: '退出登录成功',
+				showClose: false
+			});
+			this.$router.push({
+				name: 'login'
+			});
+		},
 		// 切换查询类型
 		dateTypeChange() {
 			this.month = '';

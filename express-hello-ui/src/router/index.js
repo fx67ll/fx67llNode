@@ -1,5 +1,13 @@
 import Vue from 'vue'
 import Router from 'vue-router'
+import {
+	getToken
+} from '@/utils/auth'
+import {
+	Notification,
+	MessageBox,
+	Message
+} from 'element-ui'
 
 Vue.use(Router)
 
@@ -33,7 +41,29 @@ const router = new Router({
 
 // 全局路由守卫
 router.beforeEach((to, from, next) => {
-	next() // 必须使用 next ,执行效果依赖 next 方法的调用参数
+	// next() // 必须使用 next ,执行效果依赖 next 方法的调用参数
+	if (to.fullPath === '/') {
+		if (getToken()) {
+			next({
+				name: 'index'
+			})
+		} else {
+			next()
+		}
+	} else {
+		if (getToken()) {
+			next()
+		} else {
+			Notification.error({
+				title: '警告',
+				message: '没有权限请先登录',
+				showClose: false
+			});
+			next({
+				name: 'login'
+			})
+		}
+	}
 })
 
 export default router
