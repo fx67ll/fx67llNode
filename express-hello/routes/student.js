@@ -1,9 +1,10 @@
-var express = require('express')
-var router = express.Router()
-var Student = require('../models/studentModel')
+var express = require('express');
+var router = express.Router();
+var Student = require('../models/studentModel');
+var auth = require('../middlewares/auth');
 
 // 查询学生列表
-router.get('/getStudentList', async (req, res) => {
+router.get('/getStudentList', auth, async (req, res) => {
 	const {
 		pageSize,
 		pageIndex,
@@ -34,17 +35,17 @@ router.get('/getStudentList', async (req, res) => {
 
 		res.send({
 			status: 0,
-			msg: 'クエリが成功しました!',
+			msg: '查询成功!',
 			data: userData,
 			total
 		})
 	} catch (error) {
 		res.send('error msg')
 	}
-})
+});
 
 // 创建学生
-router.post('/createStudent', async (req, res) => {
+router.post('/createStudent', auth, async (req, res) => {
 	const user = new Student({
 		name: req.body.name,
 		sex: req.body.sex,
@@ -56,7 +57,7 @@ router.post('/createStudent', async (req, res) => {
 		const data = await user.save();
 		res.send({
 			status: 0,
-			msg: '追加成功!',
+			msg: '现在成功!',
 			data: {
 				studentid: data._id,
 				name: data.name,
@@ -69,10 +70,10 @@ router.post('/createStudent', async (req, res) => {
 	} catch (error) {
 		res.send(error)
 	}
-})
+});
 
 // 删除学生
-router.delete('/deleteStudentById/:id', async (req, res) => {
+router.delete('/deleteStudentById/:id', auth, async (req, res) => {
 	const id = req.params.id;
 	try {
 		const result = await Student.deleteOne({
@@ -80,15 +81,15 @@ router.delete('/deleteStudentById/:id', async (req, res) => {
 		})
 		res.send({
 			status: 0,
-			msg: '削除に成功しました!'
+			msg: '删除成功!'
 		})
 	} catch (error) {
 		res.send('error')
 	}
-})
+});
 
 // 修改学生
-router.put('/updateStudentById/:id', async (req, res) => {
+router.put('/updateStudentById/:id', auth, async (req, res) => {
 	const {
 		id
 	} = req.params;
@@ -101,7 +102,7 @@ router.put('/updateStudentById/:id', async (req, res) => {
 			}, bodyParam);
 			res.send({
 				status: 0,
-				msg: '修正成功!',
+				msg: '修改成功!',
 				data: data
 			})
 		} else {
@@ -110,21 +111,21 @@ router.put('/updateStudentById/:id', async (req, res) => {
 	} catch (error) {
 		res.send(error)
 	}
-})
+});
 
 // 根据id查询学生，目前没有什么用
-// router.get('/getStudentById/:id', async (req, res) => {
-// 	const id = req.params.id;
-// 	try {
-// 		const result = await Student.findById(id)
-// 		res.send({
-// 			status: 0,
-// 			msg: 'クエリが成功しました!',
-// 			data: result,
-// 		})
-// 	} catch (error) {
-// 		res.send('error msg')
-// 	}
-// })
+router.get('/getStudentById/:id', auth, async (req, res) => {
+	const id = req.params.id;
+	try {
+		const result = await Student.findById(id)
+		res.send({
+			status: 0,
+			msg: '查询成功!',
+			data: result,
+		})
+	} catch (error) {
+		res.send('error msg')
+	}
+});
 
 module.exports = router;
