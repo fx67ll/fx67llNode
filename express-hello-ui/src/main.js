@@ -17,19 +17,38 @@ Vue.use(ElementUI)
 // 统一成功弹窗
 Vue.prototype.msgOK = function(msg) {
 	this.$message.success({
-		showClose: true,
+		message: msg,
 		duration: 2000,
-		message: msg
+		showClose: false
 	});
 }
 // 统一错误弹窗
 Vue.prototype.msgError = function(msg) {
 	this.$message.error({
-		showClose: true,
+		message: msg,
 		duration: 2000,
-		message: msg
+		showClose: false
 	});
 }
+// 权限成功弹窗
+Vue.prototype.authOK = function(tip, msg) {
+	this.$notify.success({
+		title: tip,
+		message: msg,
+		duration: 2000,
+		showClose: false
+	});
+}
+// 权限失败弹窗
+Vue.prototype.authError = function(tip, msg) {
+	this.$notify.error({
+		title: tip,
+		message: msg,
+		duration: 2000,
+		showClose: false
+	});
+}
+
 
 new Vue({
 	router,
