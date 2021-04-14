@@ -212,11 +212,7 @@ export default {
 		// 退出登录
 		handleLoginOut() {
 			Cookies.remove('User-Token');
-			this.$notify.success({
-				title: '提示',
-				message: '退出登录成功',
-				showClose: false
-			});
+			this.authOK('提示', '退出登录成功！');
 			this.$router.push({
 				name: 'login'
 			});

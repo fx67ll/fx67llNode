@@ -54,11 +54,13 @@ router.beforeEach((to, from, next) => {
 		if (getToken()) {
 			next()
 		} else {
-			Notification.error({
+			Notification({
+				type: 'error',
 				title: '警告',
 				message: '没有权限请先登录',
+				duration: 2000,
 				showClose: false
-			});
+			})
 			next({
 				name: 'login'
 			})

@@ -40,7 +40,11 @@ router.get('/getStudentList', auth, async (req, res) => {
 			total
 		})
 	} catch (error) {
-		res.send('error msg')
+		// res.send('error msg')
+		res.json({
+			status: 500,
+			msg: error.message
+		});
 	}
 });
 
@@ -68,7 +72,11 @@ router.post('/createStudent', auth, async (req, res) => {
 			}
 		})
 	} catch (error) {
-		res.send(error)
+		// res.send('error msg')
+		res.json({
+			status: 500,
+			msg: error.message
+		});
 	}
 });
 
@@ -84,7 +92,11 @@ router.delete('/deleteStudentById/:id', auth, async (req, res) => {
 			msg: '删除成功!'
 		})
 	} catch (error) {
-		res.send('error')
+		// res.send('error msg')
+		res.json({
+			status: 500,
+			msg: error.message
+		});
 	}
 });
 
@@ -109,7 +121,11 @@ router.put('/updateStudentById/:id', auth, async (req, res) => {
 			res.send(findUser)
 		}
 	} catch (error) {
-		res.send(error)
+		// res.send('error msg')
+		res.json({
+			status: 500,
+			msg: error.message
+		});
 	}
 });
 
@@ -124,7 +140,11 @@ router.get('/getStudentById/:id', auth, async (req, res) => {
 			data: result,
 		})
 	} catch (error) {
-		res.send('error msg')
+		// res.send('error msg')
+		res.json({
+			status: 500,
+			msg: error.message
+		});
 	}
 });
 

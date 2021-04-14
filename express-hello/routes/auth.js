@@ -26,7 +26,12 @@ router.post('/signup',
 	async (req, res) => {
 		const error = validationResult(req);
 		if (!error.isEmpty()) {
-			return res.status(400).json({
+			// return res.status(400).json({
+			// 	status: 400,
+			// 	msg: '注册失败！',
+			// 	error: error.array()
+			// });
+			return res.json({
 				status: 400,
 				msg: '注册失败！',
 				error: error.array()
@@ -54,19 +59,31 @@ router.post('/signup',
 				phone
 			});
 			if (userByName) {
-				return res.status(400).json({
+				// return res.status(400).json({
+				// 	status: 400,
+				// 	msg: '用户名已注册！'
+				// });
+				return res.json({
 					status: 400,
 					msg: '用户名已注册！'
 				});
 			};
 			if (userByEmail) {
-				return res.status(400).json({
+				// return res.status(400).json({
+				// 	status: 400,
+				// 	msg: '邮箱已注册！'
+				// });
+				return res.json({
 					status: 400,
 					msg: '邮箱已注册！'
 				});
 			};
 			if (userByPhone) {
-				return res.status(400).json({
+				// return res.status(400).json({
+				// 	status: 400,
+				// 	msg: '手机号已注册！'
+				// });
+				return res.json({
 					status: 400,
 					msg: '手机号已注册！'
 				});
@@ -102,7 +119,8 @@ router.post('/signup',
 			jwt.sign(
 				payload,
 				'randomString', {
-					expiresIn: 10000
+					// 24小时后过期
+					expiresIn: 60 * 60 * 24
 				},
 				(err, token) => {
 					if (err) {
@@ -118,7 +136,12 @@ router.post('/signup',
 
 		} catch (error) {
 			console.log(error);
-			res.status(500).json({
+			// res.status(500).json({
+			// 	status: 500,
+			// 	msg: '注册服务异常！',
+			// 	error: error.message
+			// });
+			res.json({
 				status: 500,
 				msg: '注册服务异常！',
 				error: error.message
@@ -130,23 +153,30 @@ router.post('/signup',
 
 // 登录接口
 router.post('/login',
-	[
-		check('userName', '用户名格式错误！')
-		.not()
-		.isEmpty(),
-		check('passWord', '密码格式错误！').isLength({
-			min: 6
-		})
-	],
+	// 登录暂时不需要用户名和密码的格式验证吧？
+	// [
+	// 	check('userName', '用户名格式错误！')
+	// 	.not()
+	// 	.isEmpty(),
+	// 	check('passWord', '密码格式错误！').isLength({
+	// 		min: 6
+	// 	})
+	// ],
 	async (req, res) => {
-		const errors = validationResult(req);
-		if (!errors.isEmpty()) {
-			return res.status(400).json({
-				status: 400,
-				msg: '登录失败！',
-				error: errors.array()
-			});
-		};
+		// 登录暂时不需要用户名和密码的格式验证吧？
+		// const errors = validationResult(req);
+		// if (!errors.isEmpty()) {
+		// 	// return res.status(400).json({
+		// 	// 	status: 400,
+		// 	// 	msg: '登录失败！',
+		// 	// 	error: errors.array()
+		// 	// });
+		// 	return res.json({
+		// 		status: 400,
+		// 		msg: '登录失败！',
+		// 		error: errors.array()
+		// 	});
+		// };
 
 		const {
 			userName,
@@ -159,7 +189,11 @@ router.post('/login',
 				userName
 			});
 			if (!user) {
-				return res.status(400).json({
+				// return res.status(400).json({
+				// 	status: 400,
+				// 	msg: '用户不存在！'
+				// });
+				return res.json({
 					status: 400,
 					msg: '用户不存在！'
 				});
@@ -169,7 +203,11 @@ router.post('/login',
 			// console.log('passWord', passWord);
 			const isMatch = await bcrypt.compare(passWord, user.passWord);
 			if (!isMatch) {
-				return res.status(400).json({
+				// return res.status(400).json({
+				// 	status: 400,
+				// 	msg: '密码错误！'
+				// })
+				return res.json({
 					status: 400,
 					msg: '密码错误！'
 				})
@@ -187,7 +225,8 @@ router.post('/login',
 			jwt.sign(
 				payload,
 				'randomString', {
-					expiresIn: 3600
+					// 24小时后过期
+					expiresIn: 60 * 60 * 24
 				},
 				(err, token) => {
 					if (err) throw err;
@@ -204,7 +243,12 @@ router.post('/login',
 
 		} catch (error) {
 			console.log(error);
-			res.status(500).json({
+			// res.status(500).json({
+			// 	status: 500,
+			// 	msg: '登录服务异常！',
+			// 	error: error.message
+			// });
+			res.json({
 				status: 500,
 				msg: '登录服务异常！',
 				error: error.message

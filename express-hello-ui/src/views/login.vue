@@ -55,23 +55,26 @@ export default {
 	methods: {
 		handleLogin() {
 			var self = this;
-			if(this.loginFrom.userName !== '' && this.loginFrom.passWord !== ''){
+			if (this.loginFrom.userName !== '' && this.loginFrom.passWord !== '') {
 				this.isLogin = true;
 				login(this.loginFrom).then(res => {
 					Cookies.set('User-Token', res.token);
-					this.$notify.success({
-						title: res.data.userName,
-						message: res.msg,
-						showClose: false
-					});
+					this.authOK('提示', '登录成功！');
 					setTimeout(function() {
 						self.$router.push({
 							name: 'index'
 						});
-					}, 1000);
+					}, 600);
 				});
-			}else{
-				this.msgError('账号或密码不能为空！')
+				setTimeout(function() {
+					self.isLogin = false;
+					self.loginFrom = {
+						userName: '',
+						passWord: ''
+					};
+				}, 1000);
+			} else {
+				this.authError('警告', '账号或密码不能为空！');
 			}
 		}
 	}
