@@ -1,7 +1,8 @@
 # fx67llNode
 learn nodejs
 
-欢迎参观 [node.fx67ll.com](https://node.fx67ll.com '包含最基本的登录与增删改查的基于Express和MongoDB的Nodejs示例')
+欢迎参观 [node.fx67ll.com](https://node.fx67ll.com '包含最基本的登录与增删改查的基于Express和MongoDB的Nodejs示例')  
+游客账号 `admin/123456`
 
 从零开始学习Nodejs
 base Express & MongoDB
