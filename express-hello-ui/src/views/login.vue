@@ -6,11 +6,11 @@
 			<div class="form" :class="this.isLogin ? 'fadeout' : 'fadein'">
 				<input v-model="loginFrom.userName" type="text" placeholder="Username" />
 				<input v-model="loginFrom.passWord" type="password" placeholder="Password" />
-				<el-button @click="handleLogin">Login</el-button>
+				<el-button @click="handleLogin()">Login</el-button>
 			</div>
 		</div>
 
-		<ul class="bg-bubbles">
+		<ul class="bg-bubbles" @click="showTips()">
 			<li></li>
 			<li></li>
 			<li></li>
@@ -76,6 +76,9 @@ export default {
 			} else {
 				this.authError('警告', '账号或密码不能为空！');
 			}
+		},
+		showTips() {
+			this.authOK('游客提示', '游客可以使用 admin/123456 访问');
 		}
 	}
 };
