@@ -61,7 +61,7 @@ router.post('/createStudent', auth, async (req, res) => {
 		const data = await user.save();
 		res.send({
 			status: 0,
-			msg: '现在成功!',
+			msg: '新增成功!',
 			data: {
 				studentid: data._id,
 				name: data.name,
