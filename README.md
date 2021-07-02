@@ -12,7 +12,13 @@ base Express & MongoDB
 + [搭建基于Express框架运行环境](https://www.cnblogs.com/zlfProgrammer/p/8832150.html)
 + [基于Express框架开发接口](https://www.cnblogs.com/zlfProgrammer/p/8888682.html)
 
-## 0.2.0.20210419（Egg-SEM)
+## 0.1.3.20210702
+* 调整项目整体结构，并完成远期考虑  
+
+## 0.1.2.20210629（express-hello）
+* 修复新增提示语句错别字  
+
+## 0.1.1.20210419（Egg-SEM)
 * 项目重新启动，重新规划一下学习路线
 
 ### 任务目标
@@ -28,9 +34,6 @@ base Express & MongoDB
 1. 每两周至少完成一个功能点或推进一个功能点进度
 2. 在目前所有项目中优先度排名第二
 3. 具体安排记录Teamabtion，不在git中记录
-
-## 0.1.1.20210629（express-hello）
-* 修复新增提示语句错别字  
 
 ## 0.1.0.20210414（express-hello）
 * 实现后台服务登录与注册接口
