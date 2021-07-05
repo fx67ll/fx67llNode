@@ -13,7 +13,7 @@ module.exports = (req, res, next) => {
 	if (!token) return res.json({
 		status: 401,
 		msg: '权限错误，请登录!'
-	})
+	});
 
 	try {
 		const decoded = jwt.verify(token, 'randomString');
@@ -29,6 +29,6 @@ module.exports = (req, res, next) => {
 		res.send({
 			status: 401,
 			msg: '身份失效，请重新登录！'
-		})
-	}
+		});
+	};
 };

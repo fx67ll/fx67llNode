@@ -254,7 +254,6 @@ router.post('/login',
 				error: error.message
 			});
 		};
-
 	}
 );
 
