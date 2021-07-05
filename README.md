@@ -12,6 +12,9 @@ base Express & MongoDB
 + [搭建基于Express框架运行环境](https://www.cnblogs.com/zlfProgrammer/p/8832150.html)
 + [基于Express框架开发接口](https://www.cnblogs.com/zlfProgrammer/p/8888682.html)
 
+## 0.1.4.20210705（express-hello）
+* 添加`gitignore`文件，注意`.env`文件中不要明文存储数据库存储连接地址和密码  
+
 ## 0.1.3.20210702
 * 调整项目整体结构，并完成远期考虑  
 
