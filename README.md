@@ -10,7 +10,10 @@ base Express & MongoDB
 参考资料
 + [如何系统地学习 Node.js？](https://www.zhihu.com/question/22035738)
 + [搭建基于Express框架运行环境](https://www.cnblogs.com/zlfProgrammer/p/8832150.html)
-+ [基于Express框架开发接口](https://www.cnblogs.com/zlfProgrammer/p/8888682.html)
++ [基于Express框架开发接口](https://www.cnblogs.com/zlfProgrammer/p/8888682.html)  
+
+## 0.1.5.20211106
+* 更新笔记：nvm安装以及管理多版本node教程（已完成发布）  
 
 ## 0.1.4.20210705（express-hello）
 * 添加`gitignore`文件，注意`.env`文件中不要明文存储数据库存储连接地址和密码  
