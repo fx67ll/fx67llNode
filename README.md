@@ -12,6 +12,10 @@ base Express & MongoDB
 + [搭建基于Express框架运行环境](https://www.cnblogs.com/zlfProgrammer/p/8832150.html)
 + [基于Express框架开发接口](https://www.cnblogs.com/zlfProgrammer/p/8888682.html)  
 
+## 0.1.6.20211209
+* 复习基于Express和MongoDB的Nodejs项目  
+* 学习常用pm2命令  
+
 ## 0.1.5.20211106
 * 更新笔记：nvm安装以及管理多版本node教程（已完成发布）  
 * 更新笔记：MongoDB安装与环境配置教程（未完成，待补充拓展）
