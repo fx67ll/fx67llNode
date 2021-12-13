@@ -12,3 +12,5 @@
 2. 配置mongodb服务开机自启动  [教程](https://blog.csdn.net/weixin_39077573/article/details/72899395)  
 3. 下载和安装mongoCompass，连接数据库  [教程](https://www.mongodb.com/try/download/compass)  
 4. 然后就是node项目的操作了  
+
+#### 启动mongodb服务`net start mongodb`  
