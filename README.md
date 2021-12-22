@@ -19,6 +19,9 @@ Based On Express & MongoDB
 |  express项目示例  |  express初学项目示例  |  express初学项目前端示例  |  Nodejs博客文章  |  Nodejs学习笔记  |  Nodejs学习项目  |
 
 
+## 0.1.7.20211222
+* 添加目录说明  
+
 ## 0.1.6.20211209
 * 复习基于Express和MongoDB的Nodejs项目  
 * 学习常用pm2命令  
