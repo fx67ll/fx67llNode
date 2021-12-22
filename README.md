@@ -5,12 +5,19 @@ learn Nodejs
 游客账号 `admin/123456`
 
 从零开始学习Nodejs
-base Express & MongoDB
+Based On Express & MongoDB
 
 参考资料
 + [如何系统地学习 Node.js？](https://www.zhihu.com/question/22035738)
 + [搭建基于Express框架运行环境](https://www.cnblogs.com/zlfProgrammer/p/8832150.html)
 + [基于Express框架开发接口](https://www.cnblogs.com/zlfProgrammer/p/8888682.html)  
+
+
+### 主目录说明
+|  express-example   | express-hello  |  express-hello-ui  |  node-blog  |  node-note  |  node-project  |
+|  :----:  |  :----:  |  :----:  |  :----:  |  :----:  |  :----:  |
+|  express项目示例  |  express初学项目示例  |  express初学项目前端示例  |  Nodejs博客文章  |  Nodejs学习笔记  |  Nodejs学习项目  |
+
 
 ## 0.1.6.20211209
 * 复习基于Express和MongoDB的Nodejs项目  
