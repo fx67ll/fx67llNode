@@ -1,6 +1,6 @@
 # 解决使用`npm install`或`npm i`命令之后报`Unexpected token in JSON at position`错误的问题  
 
-### 网上大多数的教程都是以下几个步骤挨个试一遍，包括`stackoverflow`上也是这么说的  
+### 网上大多数的教程都是以下几个步骤挨个试一遍，包括 [stackoverflow](https://stackoverflow.com/questions/51358648/npm-install-error-unexpected-token-in-json-at-position-0) 上也是这么说的  
 1. 删除`node_modules`文件夹  
 2. 删除`package-lock.json`文件  
 3. 强制清除npm缓存 `npm cache verify`，如果还不行就使用强力清除 `npm cache clean --force`  
