@@ -9,7 +9,7 @@
 `npm config set registry http://www.npmjs.org/`  
 `npm config set registry http://registry.npm.taobao.org`  
 ```
-5. 上述四步都完成了之后，执行`npm install`或`npm i`命令理论上来说就没有问题了，当然需要排除网络问题或者node自身的问题  
+5. 上述四步都完成了之后，执行`npm install`或`npm i`命令理论上（当然需要排除网络问题或者node自身的问题）来说就没有问题了，但是我实践了之后缺始终不能解决，确实给我带来了很大的困扰  
 
 ### 上面的第四步为什么有问题
 新的npm地址已经改为 *https://registry.npmjs.org/*，网上大多数教程还写着 ~~https://www.npmjs.org/~~，所以如果你走了上面的第四步，
